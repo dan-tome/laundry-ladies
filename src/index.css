@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* ---------------------------------------------------------------------
+   * Brand palette, sampled from the logo artwork.
+   * navy  #1F3A5F - line work and wordmark  -> structure, text, primary CTA
+   * mint  #A9D9D5 - the aprons              -> surfaces, tints, highlights
+   * coral #F58D7A - basket and garments     -> accents and hover states
+   * gold  #DFB35D - sparkles and jewellery  -> small decorative accents only
+   * ------------------------------------------------------------------- */
+
+  --color-navy-50: #f2f6fa;
+  --color-navy-100: #e2eaf3;
+  --color-navy-200: #c6d5e6;
+  --color-navy-300: #9cb4d0;
+  --color-navy-400: #6b8cb0;
+  --color-navy-500: #476c96;
+  --color-navy-600: #33547a;
+  --color-navy-700: #1f3a5f;
+  --color-navy-800: #182f4d;
+  --color-navy-900: #12233a;
+  --color-navy-950: #0b1624;
+
+  --color-mint-50: #f2faf9;
+  --color-mint-100: #e4f4f2;
+  --color-mint-200: #c9e9e5;
+  --color-mint-300: #a9d9d5;
+  --color-mint-400: #7fc4be;
+  --color-mint-500: #57a9a3;
+  --color-mint-600: #418985;
+  --color-mint-700: #366d6a;
+  --color-mint-800: #2c5654;
+  --color-mint-900: #244544;
+
+  --color-coral-50: #fef3f1;
+  --color-coral-100: #fde4df;
+  --color-coral-200: #fbc9c0;
+  --color-coral-300: #f8a697;
+  --color-coral-400: #f58d7a;
+  --color-coral-500: #e8674f;
+  --color-coral-600: #d14e35;
+  --color-coral-700: #b03f2a;
+  --color-coral-800: #8f3422;
+  --color-coral-900: #742c1e;
+
+  --color-gold-300: #eed9a8;
+  --color-gold-400: #e7c57f;
+  --color-gold-500: #dfb35d;
+  --color-gold-600: #c89740;
+  --color-gold-700: #a67a31;
+
+  /* Page surfaces */
+  --color-surface: #fbfdfe;
+  --color-surface-raised: #ffffff;
+  --color-surface-sunken: #f2f7fa;
+}
+
+html,
+body {
+  background-color: var(--color-surface);
+}
+
+/* Brand gradients and depth effects */
+.bg-brand-gradient {
+  background: linear-gradient(135deg, #33547a 0%, #1f3a5f 50%, #12233a 100%);
+}
+
+.text-brand-gradient {
+  background: linear-gradient(135deg, #33547a 0%, #1f3a5f 55%, #12233a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-brand-gradient {
+  border-image: linear-gradient(135deg, #a9d9d5, #1f3a5f, #33547a) 1;
+}
+
+/* On a light ground, "glow" reads as soft elevation rather than light bloom. */
+.brand-shadow {
+  box-shadow: 0 1px 2px rgba(18, 35, 58, 0.04), 0 4px 16px rgba(18, 35, 58, 0.06);
+}
+
+.brand-shadow-lifted {
+  box-shadow: 0 2px 4px rgba(18, 35, 58, 0.06), 0 12px 32px rgba(18, 35, 58, 0.1);
+}
+
+.brand-text-shadow {
+  text-shadow: 0 1px 2px rgba(18, 35, 58, 0.08);
+}
+
+/* Custom styles for professional scrollbars & custom layout items */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-sunken);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-navy-300);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-navy-500);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #e2eaf3 0%, #f2f6fa 50%, #e2eaf3 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-shimmer {
+    animation: none;
+  }
+}
